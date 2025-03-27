@@ -1,11 +1,15 @@
-# Plutus nexus
-Is the connection point (nexus) betwenn wealth (USDT, stable coin) and governance.
-Plutus nexus makes brings stablecoins to OpenGav!
-Plutus nexus is a safe way for user to vote for OpenGav referenda of his choice without risking DOT price fluctuation. 
-*This will cost just a small fee though!*
+# Plutus Nexus: Bridging Wealth and Governance
 
-## User Flow
-There are two main user flows. First is when user want to vote and second is when user wants to claim back his tokens.
+Plutus Nexus is the connection point between stablecoins like USDT and decentralized governance. It brings the power of stablecoins to OpenGav, allowing users to participate in referenda without worrying about DOT price fluctuations.
+
+Vote safely and confidently with stablecoins — all for just a small fee!
+
+## There are two main user flows:
+Voting:
+Users lock their stablecoins (e.g., USDT) to cast a vote on the OpenGav referendum of their choice.
+
+Claiming:
+After the referendum ends, users can claim back their stablecoins along with any rewards (if applicable).
 
 ### VOTE
 ![vote](/imgs/vote.png)
