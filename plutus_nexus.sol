@@ -76,7 +76,7 @@ contract OpenGovVotingNativeDOT {
             claimed: false
         });
 
-        bool active = referendumActive(referendumID).
+        bool active = referendumActive(referendumID);
         require(active, "Referendum is not active");
         
 
