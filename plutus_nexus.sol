@@ -64,11 +64,14 @@ contract OpenGovVotingNativeDOT {
         // Ensure contract has sufficient native DOT balance
         require(address(this).balance >= dotAmount, "Insufficient DOT in contract");
 
+        // Calculate the commission fee
+        uint256 fee = (vote.usdtAmount * commissionPercent) / 10000;
+        uint256 refundAmount = vote.usdtDeposited - fee;
 
         // Record vote details
         votes[_referendumId][msg.sender] = VoteInfo({
             voter: msg.sender,
-            usdtDeposited: _usdtAmount,
+            usdtDeposited: _usdtAmount - fee,
             dotEquivalent: dotAmountold,
             claimed: false
         });
@@ -80,10 +83,7 @@ contract OpenGovVotingNativeDOT {
         // Simulate voting on OpenGov (would require off-chain integration in reality)
         bool voteSuccess = voteOnOpenGov(_referendumId, dotAmount);
 
-        // Calculate the commission fee and make it available for collection by the owner
-        uint256 fee = (vote.usdtAmount * commissionPercent) / 10000;
-        uint256 refundAmount = vote.usdtDeposited - fee;
-
+        // Make the fee available for collection by the owner
         collectedFees += fee;
 
         return voteSuccess;
