@@ -13,20 +13,38 @@ After the referendum ends, users can claim back their stablecoins along with any
 
 ### VOTE
 ![vote](/imgs/vote.png)
+### Select Referendum
+The user chooses the ReferendaID they wish to vote on. He uses our UI that we build with PAPI that fetches list of active referendas.
 
-- User wants to vote on referendaID
-- User send Approve transaction to ERC20 contract to allow Voter to spend this amount
-- User sends Vote transaction to our contract with *ReferendaID* and *amount* of USDT he wants to vote
-- Contract checks using *governance pallet* for referenda to be active, and if so converts USDT to DOT and votes with corresponding amount of DOT
+### Approve Spending
+The user sends an approve transaction to the USDT (ERC20) contract, allowing the Plutus Voter Contract to spend a specified amount of USDT.
+
+### Cast Vote
+The user submits a vote transaction to the Plutus Nexus Contract, specifying:
+- The ReferendaID
+- The amount of USDT to vote with
+
+### Verification & Execution
+**The contract:**
+- Verifies that the selected referendum is currently active via the governance pallet
+- Converts the USDT to DOT
+- Casts the vote on-chain using the equivalent amount of DOT
+
 
 
 ### CLAIM
-
-- When referenda passed user is able to claim his USDT back, as well as contract receives hist DOTs back.
-- We are claiming small fee for usage of our platform
-
 ![vote](/imgs/claim.png)
 
+### Referendum Finalized
+Once the referendum has concluded and the voting period has ended, the Plutus Nexus contract reclaims the DOT that was used to vote.
+
+### User Claims Funds
+The user can then call the claim function to:
+Retrieve their original USDT (minus a small service fee)
+
+
+## Platform Fee
+A small fee is deducted from the user's USDT claim to cover platform usage and transaction costs.
 
 
 ## FUTURE
