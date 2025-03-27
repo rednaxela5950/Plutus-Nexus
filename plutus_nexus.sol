@@ -72,7 +72,7 @@ contract OpenGovVotingNativeDOT {
         votes[_referendumId][msg.sender] = VoteInfo({
             voter: msg.sender,
             usdtDeposited: _usdtAmount - fee,
-            dotEquivalent: dotAmountold,
+            dotEquivalent: dotAmount,
             claimed: false
         });
 
