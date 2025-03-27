@@ -46,6 +46,9 @@ Retrieve their original USDT (minus a small service fee)
 ## Platform Fee
 A small fee is deducted from the user's USDT claim to cover platform usage and transaction costs.
 
+## UI
+![ui](/imgs/ui.png)
+
 
 ## FUTURE
 This can be easly expandable in future to involve MarketMakers to provide their DOT liquidity in exhange of fee.
