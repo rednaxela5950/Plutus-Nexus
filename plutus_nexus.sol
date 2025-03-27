@@ -20,8 +20,8 @@ contract OpenGovVotingNativeDOT {
         bool claimed;
     }
 
-    mapping(uint256 => mapping(address => VoteInfo)) public votes; // proposalId => voter => VoteInfo
-    mapping(uint256 => bool) public proposalStatus; // true = passed, false = failed
+    mapping(uint256 => mapping(address => VoteInfo)) public votes; // referendumId => voter => VoteInfo
+    mapping(uint256 => bool) public referendumStatus; // true = passed, false = failed
     uint256 public collectedFees; // in USDT
 
     modifier onlyOwner() {
@@ -96,17 +96,17 @@ contract OpenGovVotingNativeDOT {
         return true;
     }
 
-    // Owner sets final status of a proposal (from off-chain results)
-    function setProposalResult(uint256 _referendumId, bool _passed) external onlyOwner {
-        proposalStatus[_referendumId] = _passed;
+    // Owner sets final status of a referendum (from off-chain results)
+    function setreferendumResult(uint256 _referendumId, bool _passed) external onlyOwner {
+        referendumStatus[_referendumId] = _passed;
     }
 
-    // User claims their USDT back minus fees after proposal finalizes
+    // User claims their USDT back minus fees after referendum finalizes
     function claim(uint256 _referendumId) external {
         VoteInfo storage vote = votes[_referendumId][msg.sender];
         require(vote.usdtDeposited > 0, "No vote found");
         require(!vote.claimed, "Already claimed");
-        require(proposalStatus[_referendumId] == true || proposalStatus[_referendumId] == false, "Proposal pending");
+        require(referendumStatus[_referendumId] == true || referendumStatus[_referendumId] == false, "referendum pending");
 
         vote.claimed = true;
 
