@@ -65,8 +65,8 @@ contract OpenGovVotingNativeDOT {
         require(address(this).balance >= dotAmount, "Insufficient DOT in contract");
 
         // Calculate the commission fee
-        uint256 fee = (vote.usdtAmount * commissionPercent) / 10000;
-        uint256 refundAmount = vote.usdtDeposited - fee;
+        uint256 fee = (_usdtAmount * commissionPercent) / 10000;
+        uint256 refundAmount = _usdtDeposited - fee;
 
         // Record vote details
         votes[_referendumId][msg.sender] = VoteInfo({
