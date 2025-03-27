@@ -8,7 +8,7 @@ Plutus nexus is a safe way for user to vote for OpenGav referenda of his choice 
 There are two main user flows. First is when user want to vote and second is when user wants to claim back his tokens.
 
 ### VOTE
-![Screenshot 2025-03-27 at 17.36.51](https://hackmd.io/_uploads/HJ7e1WQ6kx.png)
+![vote](/imgs/vote.png)
 
 - User wants to vote on referendaID
 - User send Approve transaction to ERC20 contract to allow Voter to spend this amount
@@ -21,7 +21,7 @@ There are two main user flows. First is when user want to vote and second is whe
 - When referenda passed user is able to claim his USDT back, as well as contract receives hist DOTs back.
 - We are claiming small fee for usage of our platform
 
-![Screenshot 2025-03-27 at 17.41.40](https://hackmd.io/_uploads/H1xCkW76Je.png)
+![vote](/imgs/claim.png)
 
 
 
